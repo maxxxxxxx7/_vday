@@ -4,6 +4,12 @@ body{
   background: #FFC7C7;
   margin: auto;
 }
+h3{
+  font-family: courier;
+  font-size: 16px;
+  font-weight: 100;
+  color: #222B5C;
+}
 .container{
   display:flex;
   width:90vw;
@@ -16,11 +22,12 @@ body{
   /*background: blue;*/
 }
 h1{
+  margin-top: 30px;
   font-family: butler;
   letter-spacing: -2px;
   font-size: 6em;
   color: #D03F3F;
-  line-height: 1;
+  line-height: 0.6;
   z-index: 10;
 }
 .time h1:hover{
@@ -36,10 +43,12 @@ h1{
   align-items: center;
   /*background: red;*/
 }
-#bigpic{
-  right: 0;
-  position: absolute;
-  margin: auto;
+.hide{
+  width: 650px;
+}
+ul{
+  display: flex;
+  flex-direction: column-reverse;
 }
 li{
   list-style-type: none;
@@ -60,11 +69,7 @@ button{
   float: right;
   right: 0;
 }
-#bigpic{
-  right: 0;
-  position: absolute;
-  margin: auto;
-}
+
 footer{
   width: 100%;
   background-color: #222B5C;

@@ -5,20 +5,26 @@
     <title></title>
     <link rel="stylesheet" href="css/form.css">
     <script src="/Users/maxgraham/Desktop/_vday/js/main.js"></script>
+    <link rel="icon" href="/Users/maxgraham/Desktop/_vday/assets/fav.png" sizes="32x32">
 
 
   </head>
   <body>
+<div id="hidden">
 
-    <div class="container">
+
+    <div id="container">
       <div class="elementLeft">
-          <h1>I want a Pana</h1>
-
-        <form>
-          <input type="text" class="email" placeholder="email">
+          <h1>Pana express</h1>
+<h3>Shmax needs your address to send </br>love & goodness.</h3>
+        <form id="modal-overlay">
+          <input type="text" id="addy01" class="email" placeholder="Address line 1">
           <br/>
-          <input type="text" class="pwd" placeholder="password">
+          <input type="text" id="addy02" class="pwd" placeholder="Address line 2">
+          <br/>
+          <textarea id="message" style="padding-top: 20px;" class="pwd" placeholder="Currently Strawberry/Pistachio is coming your way. If you want a different one let me know xxoxoxoxoxoxoxoxo"></textarea>
         </form>
+
       </div>
       <div class="elementRight">
             <img src="/Users/maxgraham/Desktop/_vday/assets/rose.png" alt="">
@@ -28,16 +34,109 @@
 
     </div>
 
-    <script >
-
-    </script>
-
     <footer>
       <div class="footContainer">
           <button type="button" name="button" class="btn"><a href="times.html">< Back </a></button>
-          <button type="button" name="button" class="btn" id="next"><a href="times.html"> Submit > </a></button>
+          <button type="button" name="button" class="btn" id="next"><a href="#"  id="submit"> Submit > </a></button>
     </div>
     </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script type="text/javascript">
+  		$(document).ready(function(){
+
+  		// https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175
+
+  		const info ={}
+  		const url = 'https://script.google.com/macros/s/AKfycbwg21YvxjhArfn-StlJOIi4FOGlRNNjJIeFCiIJ3LSwpfTDV-0/exec'
+
+  		const checkVerification = () => {
+  			// window.localStorage.clear()
+  			console.log(window.localStorage.getItem('verified'))
+  			if(window.localStorage.getItem('verified') === 'true'){
+  				$('#success').addClass('hide')
+  			}
+  			else{
+  				$('#modal-overlay').removeClass('hide')
+  			}
+  		}
+  		checkVerification()
+
+  		$('input').on('input',function(){
+  			checkInfo()
+  		})
+
+  		const verifyEmailFormat = (email) => {
+  	        var re = /^(([^<>()\[\]\\.,:\s@']+(\.[^<>()\[\]\\.,:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  	        console.log('RE',re.test(String(email).toLowerCase()))
+  	        return re.test(String(email).toLowerCase())
+      	}
+
+      	const checkEmail = () => {
+      		if(verifyEmailFormat($('#email').val()) === false){
+  				$('#submit').attr("disabled", "disabled")
+  				$('#submit').addClass('disabled')
+  				$('#error-message').html('Invalid email')
+  			}
+  			else{
+  				$('#submit').removeClass('disabled')
+  				$('#submit').removeAttr("disabled")
+  				$('#error-message').html('')
+  			}
+      	}
+
+  		const checkInfo = () =>{
+  			if($('#addy01').val() === '' || $('#addy02').val() === '' || $('#message').val() === '' || $('#phone').val() === '' || $('#country').val() === ''){
+  				$('#submit').attr("disabled", "disabled")
+  				$('#submit').addClass('disabled')
+  				$('#error-message').html('All fields are required')
+  			}
+  			else{
+  				checkEmail()
+  			}
+  		}
+
+  		checkInfo()
+
+
+
+  		sendInfo = (info) => {
+  			// e.preventDefault();
+  			console.log(info)
+  			$.ajax({
+  			    url: url,
+  			    method: "GET",
+  			    dataType: "json",
+  			    data: info,
+  				success:(response) => {
+  				  	console.log('Success',response)
+              $('#success').removeClass('hide')
+
+  				  	$('#success').html('xoxoxoxoxoxo')
+  				  	$('#hidden').addClass('hide')
+
+  				  	window.localStorage.setItem('verified','true')
+  				},
+  				error: (err) => {
+  		  			console.log('Error',err)
+  		  		}
+  			})
+  		}
+
+  		$('#submit').on('click',function(){
+  			info.addy01 = $('#addy01').val()
+  			info.addy02 = $('#addy02').val()
+  			info.message = $('#message').val()
+  			console.log(info)
+  			sendInfo(info)
+  		})
+
+
+  	})
+  	</script>
+
+</div>
+  <div id="success"></div>
   </body>
 
 

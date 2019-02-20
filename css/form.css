@@ -9,7 +9,7 @@ h3{
   font-weight: 100;
   color: #222B5C;
 }
-.container{
+#container{
   display:flex;
   width:90vw;
   height: 90vh;
@@ -19,6 +19,8 @@ h3{
   margin:auto;
 }
 h1{
+  padding-bottom: 20px;
+  margin: auto;
   font-family: butler;
   letter-spacing: -2px;
   font-size: 6em;
@@ -72,8 +74,26 @@ footer{
   margin: 0 auto;
   width:90vw;
 }
+textarea{
+  background-color: #FFB8B8;
+  display:block;
+  height:180px;
+  width:90%;
+  border:none;
+  margin: 0;
+  overflow: scroll;
+}
+textarea::placeholder{
+    color: #222B5C;
+}
+input:focus, textarea {
+    outline: none !important;
+}
+input::placeholder{
+  color: #222B5C;
+}
 input{
-  background-color: #FFC7C7;
+  background-color: #FFB8B8;
   display:block;
   height:50px;
   width:90%;
@@ -87,11 +107,11 @@ input{
   &:hover,
   &:focus,
   &:active:focus{
-    color:#FFC7C7;
+    color:#222B5C;
     outline:none;
     border-bottom:1px solid #222B5C;
     &::placeholder{
-      color:#ff5722;
+      color:#222B5C;
       position:relative;
       -webkit-transform:translateY(-20px);
       transform:translateY(-20px);
@@ -108,8 +128,9 @@ input{
   z-index:1;
   border-bottom:2px solid #fff;
   padding-left:20px;
+  padding-right: 20px;
   font-family: courier;
-  color:#858585;
+  color: #222B5C;
   font-weight:lighter;
   -webkit-transition:.5s;
   transition:.5s;
@@ -129,4 +150,14 @@ span{
     -webkit-transform:translateX(30px);
     transform:translateX(30px);
     }
+ }
+ #success{
+   margin: auto;
+   content:url(/Users/maxgraham/Desktop/_vday/assets/final.png);
+   color: black;
+   font-size: 200px;
+   width: 400px;
+ }
+ .hide{
+   display: none !important;
  }
