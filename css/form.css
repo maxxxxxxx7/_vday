@@ -1,0 +1,132 @@
+body{
+  height: 100vh;
+  display:flex;
+  background: #FFC7C7;
+  margin: auto;
+}
+h3{
+  font-family: courier;
+  font-weight: 100;
+  color: #222B5C;
+}
+.container{
+  display:flex;
+  width:90vw;
+  height: 90vh;
+  margin: auto;
+}
+.elementLeft{
+  margin:auto;
+}
+h1{
+  font-family: butler;
+  letter-spacing: -2px;
+  font-size: 6em;
+  color: #D03F3F;
+  line-height: 1;
+}
+#time01 h1:hover{
+  color: black;
+  transform: translate3d(100px, 0px, 0px);
+  transition: transform .5s ease-in-out;
+}
+.elementRight{
+  margin:auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background: red;*/
+}
+.elementRight img{
+  width: 400px;
+  height: auto;
+}
+button{
+  background-color: #222B5C;
+  border: none;
+  padding: 30px 0px;
+}
+.btn a{
+  color: white;
+  font-family: courier;
+  font-weight: 100;
+  text-decoration: none;
+  font-size: 18px;
+}
+#next{
+  float: right;
+  right: 0;
+}
+#bigpic{
+  right: 0;
+  position: absolute;
+  margin: auto;
+}
+footer{
+  width: 100%;
+  background-color: #222B5C;
+  position: fixed;
+  bottom: 0;
+}
+.footContainer{
+  margin: 0 auto;
+  width:90vw;
+}
+input{
+  background-color: #FFC7C7;
+  display:block;
+  height:50px;
+  width:90%;
+  border:none;
+  &::placeholder{
+    -webkit-transform:translateY(0px);
+      transform:translateY(0px);
+    -webkit-transition:.5s;
+      transition:.5s;
+  }
+  &:hover,
+  &:focus,
+  &:active:focus{
+    color:#FFC7C7;
+    outline:none;
+    border-bottom:1px solid #222B5C;
+    &::placeholder{
+      color:#ff5722;
+      position:relative;
+      -webkit-transform:translateY(-20px);
+      transform:translateY(-20px);
+
+    }
+  }
+}
+
+
+
+.email,
+.pwd{
+  position:relative;
+  z-index:1;
+  border-bottom:2px solid #fff;
+  padding-left:20px;
+  font-family: courier;
+  color:#858585;
+  font-weight:lighter;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+span{
+  position:absolute;
+  display:block;
+  margin:-10px 20%;
+  -webkit-transform:translateX(0);
+  transform:translateX(0);
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+&:hover{
+  span{
+    -webkit-transform:translateX(30px);
+    transform:translateX(30px);
+    }
+ }
