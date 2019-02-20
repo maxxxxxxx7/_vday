@@ -1,3 +1,7 @@
+@font-face {
+font-family: "Butler ExtraBold";
+src: url("css/fonts/butler_extrabold-webfont.ttf");
+}
 body{
   background: #FFC7C7;
   margin: auto;
@@ -21,7 +25,7 @@ h3{
 }
 h1{
   margin-top: 0px;
-  font-family: butler;
+  font-family: butler ExtraBold;
   letter-spacing: -2px;
   font-size: 6em;
   color: #D03F3F;
