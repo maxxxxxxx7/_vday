@@ -1,9 +1,4 @@
-@font-face {
-font-family: "Butler ExtraBold";
-src: url("css/fonts/butler_extrabold-webfont.ttf");
-src:
-url("css/fonts/butler_extrabold-webfont.svg") format("svg");
-}
+
 body{
   background: #FFC7C7;
   margin: auto;
@@ -27,7 +22,8 @@ h3{
 }
 h1{
   margin-top: 0px;
-  font-family: butler ExtraBold;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
   letter-spacing: -2px;
   font-size: 6em;
   color: #D03F3F;
