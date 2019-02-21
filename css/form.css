@@ -21,7 +21,8 @@ h3{
 h1{
   padding-bottom: 20px;
   margin: auto;
-  font-family: butler;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
   letter-spacing: -2px;
   font-size: 6em;
   color: #D03F3F;
